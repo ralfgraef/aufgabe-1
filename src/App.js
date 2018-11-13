@@ -1,25 +1,25 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import UserInput from "./components/UserInput";
+import UserOutput from "./components/UserOutput";
 
 class App extends Component {
+  state = {
+    persons: [
+      { userName: "Ralf" },
+      { userName: "Max" },
+      { userName: "Anne" },
+      { userName: "Gurkenkopf" }
+    ]
+  };
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <UserInput />
+        <UserOutput userName={this.state.persons[0].userName} />
+        <UserOutput userName={this.state.persons[1].userName} />
+        <UserOutput userName={this.state.persons[2].userName} />
+        <UserOutput userName={this.state.persons[3].userName} />
       </div>
     );
   }
